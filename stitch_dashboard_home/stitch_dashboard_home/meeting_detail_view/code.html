@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Meeting Detail - TaskLedger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#29298e",
+                        "background-light": "#f7f7f7",
+                        "background-dark": "#1e1e24",
+                        "status-red": "#D43F3F",
+                        "status-amber": "#E6B800",
+                        "status-gray": "#6B7280",
+                        "status-green": "#1A9F5C",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#101019] dark:text-white min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-6 py-3">
+<div class="max-w-[1440px] mx-auto flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1.5 rounded-lg text-white">
+<span class="material-symbols-outlined block">account_tree</span>
+</div>
+<h2 class="text-lg font-extrabold tracking-tight">TaskLedger</h2>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-sm font-semibold opacity-60 hover:opacity-100 transition-opacity" href="#">Meetings</a>
+<a class="text-sm font-semibold opacity-60 hover:opacity-100 transition-opacity" href="#">Tasks</a>
+<a class="text-sm font-semibold opacity-60 hover:opacity-100 transition-opacity" href="#">Insights</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-gray-100 dark:bg-gray-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary w-64" placeholder="Search across meetings..." type="text"/>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white text-sm font-bold rounded-lg hover:bg-opacity-90 transition-all">
+<span class="material-symbols-outlined text-sm">ios_share</span>
+<span>Export</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-cover bg-center border-2 border-white dark:border-gray-700" data-alt="User profile avatar of a woman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAkG5V8YuO-NBKRtROQUDfLOEgoDGedUFs4c5whmjxputStcly7hRTfrt-jAvPM8PIYGW25LGT-vJQgLB3pOrj8ipdLe8xUBWxvElnDPnv_J4i-NHER2EUPZieQPV3diry_BZIgydR_Pz9bger4clW5qhOqgAFmwQ2scSbLt41rh5yUe7HYBSNCM3SUSn1lerE4NeciRvoih_qSFuC6CZQyeyMh7YH08uWkO_-Ppcu6C6KmMgdkO2QMr8PRPPU_Yek7oZZ_5NtPFpM')"></div>
+</div>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto p-6 lg:p-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Sidebar: Metadata -->
+<aside class="lg:col-span-3 space-y-6">
+<div class="bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm">
+<div class="flex justify-between items-start mb-6">
+<span class="bg-green-100 text-status-green text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded">Processed</span>
+<button class="text-gray-400 hover:text-primary"><span class="material-symbols-outlined text-lg">edit</span></button>
+</div>
+<h1 class="text-3xl font-black leading-tight mb-2">Q4 Product Roadmap Sync</h1>
+<p class="text-gray-500 text-sm mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                        October 24, 2023 • 10:00 AM
+                    </p>
+<div class="space-y-4">
+<div>
+<p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-3">Participants (6)</p>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-cover bg-center" data-alt="John Doe participant avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAspQMAa6zhUUsad0g5qvs3NkxsBomTtyykht2_hx-9wPmn9a8bebcf8z-r6IcBjTR4BXDQ-4v_-D2glHRzZrcWZqiWJsaM-m15IX9el1QOrqtNggD_TZFq8R3izB6-nhp2dll7kJvKisoyloTrIq-39yxahkeN0V1B0VgfYcLWmWn-OOEjSp_3Mrjd7oUtEbsJOc1ug6bP9V0XhSQVTWrRNcz_uUoZ0jRTFVfLnrLzVPhktTjKfOIjEybdzC_TVJtanY8OXZbTRCI')"></div>
+<div>
+<p class="text-xs font-bold">John Doe</p>
+<p class="text-[10px] text-gray-500">Product Lead</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-cover bg-center" data-alt="Sarah Smith participant avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAYZhjMsIc3P22M7brPn57-cgR-PzTgecOn5KAIKLeqWDK7VNZTkwTz9ZW7it1fNzIvBHYqSLRVGW0ZyUyogJvHzR2K1BXVo_kjOS61mc6BeCM_sGAOGLfajlunSqcELukSNjjwEv8rRZCpn-eRMjMeAswiB9uCyT9lQXpLwrXrl1ULeseqf4e1SlprwdT_CKJAWrqaasBz-PKXZ_qzlkWps-elJfHn2T8xHptQtuuMDSpi-0BL1kXpGQ6orrRANfz1M2fKexRgnFI')"></div>
+<div>
+<p class="text-xs font-bold">Sarah Smith</p>
+<p class="text-[10px] text-gray-500">Finance</p>
+</div>
+</div>
+<div class="flex items-center gap-3 opacity-50">
+<div class="w-8 h-8 rounded-full bg-cover bg-center" data-alt="Mike Ross participant avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDjOZ_DjAwEFz13vsI2UnxoubDva8YHY75Zwjzygir6GKU-vPdpvlS_ou-_tfawmrVqLjGtzKfDr3-OGgM_yDITK6ic7tnKYYn7yR5qzbATR1YTXCUiSQOo1cxOOecVoz6ICWqpZ73CIVWpS4DgB2pVSyECvznLVsJodSHAtXbO4tiLBUlb6FLEMTqng-qnZwKdo8ALMtQXpL76SzneaEYX4qW0TEjh8MGVUglmeUwoUpdzQ5nlWBtFuoTArVAekT2FsI4g4fs3JI')"></div>
+<div>
+<p class="text-xs font-bold">Mike Ross (Absent)</p>
+<p class="text-[10px] text-gray-500">Legal</p>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-4 border-t border-gray-100 dark:border-gray-800">
+<p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-3">Tags</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-[10px] font-bold">Roadmap</span>
+<span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-[10px] font-bold">Q4-Planning</span>
+<span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-[10px] font-bold">Budget</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content: Action Items & Transcript -->
+<div class="lg:col-span-6 space-y-6">
+<!-- Action Items Section -->
+<section class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">task_alt</span>
+<h3 class="font-extrabold text-lg">AI-Extracted Action Items</h3>
+</div>
+<button class="px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/10 rounded-lg transition-colors">Add Task</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-gray-50 dark:bg-gray-800/50 text-[11px] uppercase tracking-wider font-bold text-gray-400">
+<th class="px-6 py-4">Task Description</th>
+<th class="px-6 py-4">Owner</th>
+<th class="px-6 py-4">Priority</th>
+<th class="px-6 py-4">Conf.</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+<!-- Row 1 -->
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors">
+<td class="px-6 py-4">
+<p class="text-sm font-semibold mb-1">Finalize Q4 budget proposal by Friday</p>
+<p class="text-[10px] text-gray-500">Due Oct 27, 2023</p>
+</td>
+<td class="px-6 py-4">
+<div class="flex -space-x-2">
+<div class="w-7 h-7 rounded-full border-2 border-white dark:border-gray-900 bg-cover bg-center" data-alt="Sarah Smith owner avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCraN_wuCNfYcuxzx6qsB5IHFP9PpbW2-oU1pkHY3UrbGCRl0nAs5s-z3cUIBxOpJM3FbHwn-uAbUQr0-v6tX5hQyptlHbHQNe8_afOADOUl8e5xTnTS5N4YW3CWg2hrY1mqJp1NjBIDk2aQwlh1cLqgsEic2sHcIlsFmLoeYuUNsOV4kOe7vrqUDe3RDOJpDYzCTZ-wVsTvGJChMGbLr58ba7cMrkmP8yq8KHQ6F8xOXIH0LMHhTqz3BHq1qOhQWfRPi75Li8pKDY')"></div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-red-100 text-status-red text-[10px] font-bold rounded">HIGH</span>
+</td>
+<td class="px-6 py-4">
+<div class="w-16 h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+<div class="h-full bg-status-green w-[98%]"></div>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors">
+<td class="px-6 py-4">
+<p class="text-sm font-semibold mb-1">Schedule meeting with Engineering lead</p>
+<p class="text-[10px] text-gray-500">Due Oct 25, 2023</p>
+</td>
+<td class="px-6 py-4">
+<div class="w-7 h-7 rounded-full bg-cover bg-center" data-alt="John Doe owner avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCbhAnEpMbTTEcyIPlH9FOHpUJ6NOisgfLdMFP080vrZp_NNUFtXPu59yI46ke-M4dI1qGFqvIJtYcaL6AXBFcQp4h52syJCkrBZ5zlIA15r3HS-hFnElgg_gVm-GbCcmZAgIn1bftilT35S6AzMsmhJ0n_sEePC-A9dJ5AbIjLul8Aqm1UwMMnt2xsIFgC2hYtZr6pQt41v9nmMv-p4X2zl_11BpjrXc8QG5GTwroNr23G5CWlT27_eAoSB2D9wk80UiPV5unvUN0')"></div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-amber-100 text-status-amber text-[10px] font-bold rounded">MEDIUM</span>
+</td>
+<td class="px-6 py-4">
+<div class="w-16 h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+<div class="h-full bg-status-amber w-[65%]"></div>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors">
+<td class="px-6 py-4">
+<p class="text-sm font-semibold mb-1">Review legal compliance for Q1 launch</p>
+<p class="text-[10px] text-gray-500">Due Nov 02, 2023</p>
+</td>
+<td class="px-6 py-4">
+<div class="w-7 h-7 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-[10px] font-bold">MR</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-gray-100 text-status-gray text-[10px] font-bold rounded">LOW</span>
+</td>
+<td class="px-6 py-4">
+<div class="w-16 h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+<div class="h-full bg-status-red w-[40%]"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Transcript Section -->
+<section class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden">
+<details class="group" open="">
+<summary class="flex cursor-pointer items-center justify-between p-6 bg-gray-50 dark:bg-gray-800/50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-gray-500">notes</span>
+<h3 class="font-extrabold text-lg">Original Transcript</h3>
+</div>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-6 space-y-6 max-h-[400px] overflow-y-auto">
+<div class="flex gap-4">
+<p class="text-[10px] font-bold text-primary shrink-0 w-12 pt-1">02:14</p>
+<div>
+<p class="text-xs font-black mb-1">John Doe</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">We need to move the launch to Q1 to ensure we have all the security protocols in place. What does the budget look like if we delay by 3 months?</p>
+</div>
+</div>
+<div class="flex gap-4">
+<p class="text-[10px] font-bold text-gray-400 shrink-0 w-12 pt-1">02:45</p>
+<div>
+<p class="text-xs font-black mb-1 text-status-amber">Sarah Smith</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Agreed, but we must finalize the budget by Friday. I'll need the engineering resource plan to run the numbers properly.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<p class="text-[10px] font-bold text-gray-400 shrink-0 w-12 pt-1">03:10</p>
+<div>
+<p class="text-xs font-black mb-1">John Doe</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">I'll talk to the lead today. Let's touch base on Thursday afternoon.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<p class="text-[10px] font-bold text-gray-400 shrink-0 w-12 pt-1">04:22</p>
+<div>
+<p class="text-xs font-black mb-1">Mike Ross</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed italic">[Joined via voice only] I'll start the legal review on the Q1 contracts so we aren't blocked later.</p>
+</div>
+</div>
+</div>
+<div class="p-4 bg-gray-50 dark:bg-gray-800/30 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="text-primary"><span class="material-symbols-outlined">play_circle</span></button>
+<div class="w-48 h-1 bg-gray-200 dark:bg-gray-700 rounded-full relative">
+<div class="absolute left-0 top-0 h-full bg-primary w-1/3"></div>
+<div class="absolute left-1/3 top-1/2 -translate-y-1/2 w-2 h-2 bg-primary rounded-full shadow"></div>
+</div>
+<span class="text-[10px] font-bold text-gray-500">03:45 / 12:20</span>
+</div>
+<button class="flex items-center gap-1 text-[10px] font-bold text-gray-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">search</span> Search keywords
+                            </button>
+</div>
+</details>
+</section>
+</div>
+<!-- Right Panel: Analytics & Stats -->
+<aside class="lg:col-span-3 space-y-6">
+<!-- Quick Stats -->
+<div class="grid grid-cols-1 gap-4">
+<div class="bg-white dark:bg-gray-900 p-5 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm">
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Total Tasks</p>
+<div class="flex items-end justify-between">
+<h4 class="text-2xl font-black">12</h4>
+<span class="text-status-green text-[10px] font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">trending_up</span> +3
+                            </span>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900 p-5 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm border-l-4 border-l-status-red">
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">High Priority</p>
+<div class="flex items-end justify-between">
+<h4 class="text-2xl font-black text-status-red">4</h4>
+<span class="text-status-red text-[10px] font-bold">CRITICAL</span>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900 p-5 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm">
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Avg Confidence</p>
+<div class="flex items-end justify-between">
+<h4 class="text-2xl font-black">84%</h4>
+<div class="w-12 h-1 bg-gray-100 dark:bg-gray-800 rounded-full mb-2 overflow-hidden">
+<div class="h-full bg-primary w-[84%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Priority Breakdown -->
+<div class="bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm">
+<h3 class="font-bold text-sm mb-6">Task Breakdown</h3>
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-status-red"></div>
+<span class="text-xs text-gray-500 font-medium">Overdue</span>
+</div>
+<span class="text-xs font-bold">2</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-status-amber"></div>
+<span class="text-xs text-gray-500 font-medium">In Progress</span>
+</div>
+<span class="text-xs font-bold">7</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-status-green"></div>
+<span class="text-xs text-gray-500 font-medium">Completed</span>
+</div>
+<span class="text-xs font-bold">3</span>
+</div>
+</div>
+<!-- Visual Graph Placeholder -->
+<div class="mt-6 flex justify-center items-center h-24">
+<div class="relative w-20 h-20 rounded-full border-[10px] border-gray-100 dark:border-gray-800 flex items-center justify-center">
+<div class="absolute inset-0 rounded-full border-[10px] border-status-red border-b-transparent border-l-transparent border-r-transparent -rotate-12"></div>
+<span class="text-[10px] font-black opacity-40">RISK</span>
+</div>
+</div>
+</div>
+<!-- AI Insight -->
+<div class="bg-primary/5 dark:bg-primary/20 p-5 rounded-xl border border-primary/10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-sm">auto_awesome</span>
+<p class="text-[10px] font-black text-primary uppercase tracking-widest">AI Observation</p>
+</div>
+<p class="text-xs text-primary leading-relaxed">
+                        The AI detected hesitation during the budget discussion. Confidence scores for related tasks were lowered to reflect potential uncertainty in the Friday deadline.
+                    </p>
+</div>
+</aside>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard Home - TaskLedger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#29298e",
+                        "background-light": "#f7f7f7",
+                        "background-dark": "#1e1e24",
+                        "status-green": "#1A9F5C",
+                        "status-yellow": "#E6B800",
+                        "status-red": "#D43F3F",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary dark:text-white">
+<div class="size-6 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-lg">auto_awesome</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-extrabold leading-tight tracking-tight">TaskLedger</h2>
+</div>
+<label class="flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-500 flex border-none bg-slate-100 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-slate-100 dark:bg-slate-800 focus:border-none h-full placeholder:text-slate-500 px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal" placeholder="Search transcripts..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<nav class="flex items-center gap-6">
+<a class="text-primary text-sm font-bold leading-normal border-b-2 border-primary pb-1" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Meetings</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Tasks</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Analytics</a>
+</nav>
+<div class="h-6 w-[1px] bg-slate-200 dark:bg-slate-700"></div>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="truncate">New Meeting</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-9 border border-slate-200 dark:border-slate-700" data-alt="User profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD0F8_QnV_4IQhKnEkb-UQTWMd0XTAqLVkMb3q4Wu6KQ2pvMbKCWDJjhbDYvWl7nOETIzrapLTYMUyBH_NTbnlNhXfTImAPYx2rK3u3N8mvezkd_Qr6w14PJ5e_teNWI2Xk-TEKYCjPKri-6OWVX3jrddTHlogrZJp4dLUNd86ubuegsjjIA6BlicsOAg_sDazKZqSnQOKT-wL9iegFM-LPZk8V6U230HXGKvoSlDUXzRVqeIcgVjkA66X_XHM-97Nh8msCwMhF4EA");'></div>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-8">
+<div class="layout-content-container flex flex-col max-w-[1100px] flex-1 px-4">
+<!-- Quick Stats Section -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">Total Meetings</p>
+<span class="material-symbols-outlined text-slate-400 text-sm">meeting_room</span>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-slate-900 dark:text-white tracking-tight text-3xl font-extrabold leading-tight">128</p>
+<p class="text-status-green text-xs font-bold leading-normal flex items-center">+12%</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">Pending Actions</p>
+<span class="material-symbols-outlined text-status-yellow text-sm">pending_actions</span>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-slate-900 dark:text-white tracking-tight text-3xl font-extrabold leading-tight">42</p>
+<p class="text-status-green text-xs font-bold leading-normal">+5%</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">Completion Rate</p>
+<span class="material-symbols-outlined text-status-green text-sm">check_circle</span>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-slate-900 dark:text-white tracking-tight text-3xl font-extrabold leading-tight">84%</p>
+<p class="text-status-red text-xs font-bold leading-normal">-2%</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-slate-900 border border-status-red/30 dark:border-status-red/20 bg-status-red/5 shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal">High-Risk Tasks</p>
+<span class="material-symbols-outlined text-status-red text-sm">priority_high</span>
+</div>
+<div class="flex items-baseline gap-2">
+<p class="text-status-red tracking-tight text-3xl font-extrabold leading-tight">5</p>
+<p class="text-status-red text-xs font-bold leading-normal">-10%</p>
+</div>
+</div>
+</div>
+<!-- Recent Meetings List -->
+<div class="flex items-center justify-between px-2 mb-4">
+<h2 class="text-slate-900 dark:text-white text-xl font-extrabold leading-tight tracking-tight">Recent Meetings</h2>
+<button class="text-primary dark:text-primary/80 text-sm font-bold hover:underline">View all</button>
+</div>
+<div class="flex flex-col gap-4 px-2">
+<!-- Meeting Card 1 -->
+<div class="group flex flex-col md:flex-row items-stretch justify-start rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-md hover:border-primary/30 transition-all cursor-pointer overflow-hidden">
+<div class="w-full md:w-48 bg-center bg-no-repeat aspect-video md:aspect-square bg-cover bg-slate-100 dark:bg-slate-800 relative" data-alt="Meeting recording thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDDOkGS8ENHlR6uycYhoLxx0Lm_Z3mWhAT7Ig1f2hX3o6zj9bgk_pNkQxfepDBg5oDKajXe6a_V9FLOPqOku1Dab-pzGW64l3LKaya2GMirO74wG_biseQKHyf3y0ag3HkzbGr42ElQ2oDB5EECUsVHUi1m4cjRt7YCgOhnyWjaZ3SI1Tv-HhpTl4tEaP4t7Z9ZPNKYj46G-TZzreC2ZYqUoWWp7qdWDOn6HrO5NQhyKzuAgB4e37dw9gxRwek4p1kb4ZhSykdPnuc");'>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+<div class="absolute bottom-2 right-2 bg-slate-900/80 backdrop-blur-sm text-white text-[10px] px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> AI Processed
+                            </div>
+</div>
+<div class="flex flex-1 flex-col justify-between p-5">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-status-yellow/10 text-status-yellow">In Progress</span>
+<p class="text-slate-400 text-xs font-medium">Oct 12, 2023 • 2:30 PM</p>
+</div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors">Q4 Strategy Sync</h3>
+</div>
+<div class="flex -space-x-2">
+<div class="size-7 rounded-full border-2 border-white dark:border-slate-900 bg-cover" data-alt="Participant 1" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD0_OsCtQX8Uy_6Rb2g5PV6I1IL0V0yrjIsKesYxBKiYiU5PuR9O0Y-AfUV6xnTUXT2OQRym8HXm5irCMMOa0KGHrVXuTeLl30v8T_Cs9m5C9k2zi38c9puO5c_xJHdTaI3u1c7JF0ZgD3nFt9pHbkWmrZPRsVaFkJq1uaHNGVJRtlox4H8IJBTve-G-J6O6GmSOWB_fqbkMOKeiukRPpFWoLFjtlIpqTiwrCtwo0zSh61eG3vc8_WoKr48kfNVpzAq-_hq_EAma_0");'></div>
+<div class="size-7 rounded-full border-2 border-white dark:border-slate-900 bg-cover" data-alt="Participant 2" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCAvAj3MwmkCLDjWpb8fRN4oLYjbU681CBd0TZbUINn6KCwzb2qzjRL-YD94JLnP0JjgfAi2wwGbWrSAKGnH4xqfX69wPc9Igoz_zDZxF6I3Bflc9vm47Y3X5lbENsAaaJu4EXFDZ76FX-JheLbNfHqC8YBolm92VXQgzmx87Il5PeHK9lEbIfiv-wBCI0FLQgwGkxFTdfD8lzV7e4odREwozWO9-Vsri-VlkKonQI-8IcKQGEQ6rSlwTFP7kSQIJFo_AOK2KWPxRg");'></div>
+<div class="size-7 rounded-full border-2 border-white dark:border-slate-900 bg-cover" data-alt="Participant 3" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA9WT1w-bbPjYXTKULfmpIlvzPEo917lZOWLDufJoVhhs3H5iX7LPrO-lphJCqhmohPeK5kC2LFGh5Yk9496mdaepjMwTz1btKcsLGUtaG4i_BEQPFt5veWN557GOB4WKlIqv_L7mGdRd83Dt6P6ud6WCY8E4mZdCB4xIx6yWnKlueMaYJGq6aLS7DbHqwsAMpnMl72yzjU8uXGrV2ShFjpDWUsLXzFGWCBkED2pXg4aaMw4L2au4hQ-TR9HjPHg4WsVmtpo9f1JZg");'></div>
+<div class="size-7 rounded-full border-2 border-white dark:border-slate-900 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-[10px] font-bold">+2</div>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between gap-6">
+<div class="flex-1 max-w-xs">
+<div class="flex justify-between items-center mb-1.5">
+<span class="text-slate-500 dark:text-slate-400 text-xs font-medium">5 of 8 tasks complete</span>
+<span class="text-primary text-xs font-bold">62%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 62%"></div>
+</div>
+</div>
+<button class="flex min-w-[120px] items-center justify-center rounded-lg h-9 px-4 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-bold hover:bg-primary hover:text-white transition-all">
+                                    View Summary
+                                </button>
+</div>
+</div>
+</div>
+<!-- Meeting Card 2 -->
+<div class="group flex flex-col md:flex-row items-stretch justify-start rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-md hover:border-primary/30 transition-all cursor-pointer overflow-hidden">
+<div class="w-full md:w-48 bg-center bg-no-repeat aspect-video md:aspect-square bg-cover bg-slate-100 dark:bg-slate-800 relative" data-alt="Meeting recording thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAxFJzgP7jaZ0y-2kcRGpdN93Jc-yuP49qrpqs6jW0Y-gVemYd3Cy15QZLuGHy0z-s_gdqISuKlMSy8m4tBOulDdb_pmzYLv41kdvY2AQm1AGYMqMkdjQEKxInyGCag5E8xdBuUsdufkIkLAuEq0dYJS8Xa3mEOeMUJ3BMcHvBivapfWkLt8TrbmCUEZsWPv-9QqNmP9lDqGBy4N11MnaM1UMOmKMx9P8ToosIZY1fKClIuv_TTEalaCa3zh5moqBK7D_7GO3mQuIM");'>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+<div class="absolute bottom-2 right-2 bg-slate-900/80 backdrop-blur-sm text-white text-[10px] px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> AI Processed
+                            </div>
+</div>
+<div class="flex flex-1 flex-col justify-between p-5">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-status-green/10 text-status-green">Completed</span>
+<p class="text-slate-400 text-xs font-medium">Oct 11, 2023 • 10:00 AM</p>
+</div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight group-hover:text-primary transition-colors">Product Roadmap Deep Dive</h3>
+</div>
+<div class="flex -space-x-2">
+<div class="size-7 rounded-full border-2 border-white dark:border-slate-900 bg-cover" data-alt="Participant 1" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCyL3oKxia53S2MKf5_MhmrKj32XTiF1pFGUGTBfnNTDItEbzgu0OnK4qXDpvXpbqgPMYEt461B3Wf7srxHkLITmS0uwN_RTzswuPBfL8MH5VShPrx2MocILD57vGIIEjOpMy62BedrhVEQ8Nl_ZlKbbT4qyIZoW0MEvgD89DH8IG-OO6muWPizRfrMi_OlZJqzcEP_ytm9IztXAr4ydlDN35-HsV3KT5JEvdJtdBh8g4o46R87UUpvY8yUsHui00i71vq6SU6Fb1s");'></div>
+<div class="size-7 rounded-full border-2 border-white dark:border-slate-900 bg-cover" data-alt="Participant 2" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA3zqs5R96E1T34f8XWhFR-BtpkRSiV1Tedv3FqFS0CDa7UccXX-3jNN-B16DoCeJXm9wnFdhemHH93XJnMA_1GrCkGPM0Mtxdvdo7pjR0omeHo9WBIFAbj-6tP_Kv7XW1jWb8RSBKPnEsZPGBo18uo0RMsZTg_THumxFBzebN7mX1VemNR9fOSMQ6Bc2BI65QAwqtEv_g5w_WcBZRKrySBd28u10DOtk0GgIAkoC0XB1lRQIbBcX2CPwpB5m5XBBAMOm2bQv_iSCM");'></div>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between gap-6">
+<div class="flex-1 max-w-xs">
+<div class="flex justify-between items-center mb-1.5">
+<span class="text-slate-500 dark:text-slate-400 text-xs font-medium">10 of 10 tasks complete</span>
+<span class="text-status-green text-xs font-bold">100%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
+<div class="bg-status-green h-full rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<button class="flex min-w-[120px] items-center justify-center rounded-lg h-9 px-4 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-bold hover:bg-primary hover:text-white transition-all">
+                                    View Summary
+                                </button>
+</div>
+</div>
+</div>
+<!-- Meeting Card 3 -->
+<div class="group flex flex-col md:flex-row items-stretch justify-start rounded-xl border border-status-red/30 bg-white dark:bg-slate-900 hover:shadow-md transition-all cursor-pointer overflow-hidden">
+<div class="w-full md:w-48 bg-center bg-no-repeat aspect-video md:aspect-square bg-cover bg-slate-100 dark:bg-slate-800 relative" data-alt="Meeting recording thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAPSirxPCqhkQRXoDnCuZBEbPE73kQWCSbt08koSrAUL-ppHIv1xyxG6IzBlg_TdD-RELkDSz0QAC_Do92uguSKLxALibEALYy49SLHRXSJNet_qmQbTnjEbdJLAmxFAbYy8LuQKTYm_yZG2lhZ17Q6Hxqyj4cq1zKFfkJGhhxti6If4UC7De8KlXQ8aqDhPy-w-06EyQqL43vTLuAOvO9ztiy3hVA7EROIQrKRkw73ANNDVTXKQFIQtDXb-LV1ds0w6Z-e3QpuvEU");'>
+<div class="absolute inset-0 bg-status-red/10 group-hover:bg-transparent transition-colors"></div>
+<div class="absolute bottom-2 right-2 bg-slate-900/80 backdrop-blur-sm text-white text-[10px] px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> AI Processed
+                            </div>
+</div>
+<div class="flex flex-1 flex-col justify-between p-5">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-status-red/10 text-status-red">High Risk</span>
+<p class="text-slate-400 text-xs font-medium">Oct 10, 2023 • 4:00 PM</p>
+</div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight group-hover:text-status-red transition-colors">Client Kickoff: Acme Corp</h3>
+</div>
+<div class="flex -space-x-2">
+<div class="size-7 rounded-full border-2 border-white dark:border-slate-900 bg-cover" data-alt="Participant 1" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC7eJPuAsQktvhMsQxHZQLGH75Uasy9T5k3lDdH7VAAInuwBS9ARBQfIxopo7XlBlYXWWVyTAAsxeey7wVt8pM7LEPh-UDHfd9v0YEwzBzVBDAS-Tzd7m-jmos4Ac0LbPh_fd-_6bBN1otXWnOAtahS8aSc673UZXVW0d7rElXLfCUdRf5kVfazaVl8v8cb6RtjkPLt3Pkx9WdR7i9u0q9txWngSlcdCOVXWAWhgOq07zyCPTwIgDdlTXtdKrYlqJbnrZQ8VzmLP6g");'></div>
+<div class="size-7 rounded-full border-2 border-white dark:border-slate-900 bg-cover" data-alt="Participant 2" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAma0EIFRxHoi00U2ywiRZR0jTXgO6ZtiFiwpBTCRL_3FZVgjKfidDkdijIuEKQT28UNuqxXu6krleVKDW1KkP823RCEkN-6CZ8HWPEiClkWw_sSwiLVKuPvFLeubuakkviFLXiAd9HeKvI5y-vd-Yu_UWFtfmJImRHGLCamjv4_KtrEN71k6OqNG59JSWiiaYNaxkuW6UYAxw4b0htCsIIpshtB5Rs9CR2VirU3HtQu1-SHry4Tg3S5HE2PhwwjJvgCwtQ8-_l43o");'></div>
+<div class="size-7 rounded-full border-2 border-white dark:border-slate-900 bg-cover" data-alt="Participant 3" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuArJ0jhiLXK1j9ZWrf_Jy7fxsVD0D1Mwfvaa8ci7-wQfOS19L95GCbpst1KzdaEYBoEt_9_1lF_OZDLo71eM8Wk62OL78q4EwHNxvFlHoCbFYaQJX-KZBQrwsGGCnXSM5JXIYGhNaHapG5_5f_HuHbRRCsqYHDuB7lP9UDRtcL6R_FZJ_e9TRbSGFM8_fZHoS_MOHAU5kK61I5AcON3cW_Gf22dTXIei-zshZAbhPOJfnsTBJ9qYmbhSro-6OANiNIyzBW0hMtKSgY");'></div>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between gap-6">
+<div class="flex-1 max-w-xs">
+<div class="flex justify-between items-center mb-1.5">
+<span class="text-slate-500 dark:text-slate-400 text-xs font-medium">2 of 9 tasks complete</span>
+<span class="text-status-red text-xs font-bold">22%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
+<div class="bg-status-red h-full rounded-full" style="width: 22%"></div>
+</div>
+</div>
+<button class="flex min-w-[120px] items-center justify-center rounded-lg h-9 px-4 bg-status-red text-white text-sm font-bold hover:bg-status-red/90 transition-all shadow-sm">
+                                    Address Issues
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer / Secondary Content -->
+<div class="mt-12 p-8 rounded-2xl bg-slate-900 text-white flex flex-col md:flex-row items-center justify-between gap-8">
+<div>
+<h4 class="text-2xl font-bold mb-2">Automate your action items</h4>
+<p class="text-slate-400 max-w-md">Connect TaskLedger to your Zoom or Google Meet to automatically extract summaries and high-risk tasks.</p>
+</div>
+<div class="flex gap-4">
+<button class="bg-white text-slate-900 px-6 py-3 rounded-lg font-bold hover:bg-slate-100 transition-colors">Connect Calendar</button>
+<button class="bg-primary/50 border border-primary text-white px-6 py-3 rounded-lg font-bold hover:bg-primary/70 transition-colors">Documentation</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
