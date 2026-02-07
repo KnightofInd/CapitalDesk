@@ -4,10 +4,10 @@ import { query } from '@/lib/db';
 // PUT - Update existing holding
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const holdingId = params.id;
+    const { id: holdingId } = await params;
     const body = await request.json();
     const { quantity, purchasePrice, purchaseDate } = body;
 
@@ -42,10 +42,10 @@ export async function PUT(
 // DELETE - Remove holding
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const holdingId = params.id;
+    const { id: holdingId } = await params;
 
     await query(
       'DELETE FROM holdings WHERE holding_id = $1',

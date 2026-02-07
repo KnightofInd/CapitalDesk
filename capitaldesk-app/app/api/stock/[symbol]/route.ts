@@ -13,14 +13,16 @@ import { HoldingWithStock } from "@/lib/types";
 export const dynamic = "force-dynamic";
 
 interface RouteParams {
-  params: {
+  params: Promise<{
     symbol: string;
-  };
+  }>;
 }
 
 export async function GET(request: Request, { params }: RouteParams) {
+  const { symbol: rawSymbol } = await params;
+  const symbol = rawSymbol.toUpperCase();
+  
   try {
-    const symbol = params.symbol.toUpperCase();
     console.log(`📊 Fetching stock details for: ${symbol}`);
 
     // Step 1: Get stock information
@@ -115,7 +117,7 @@ export async function GET(request: Request, { params }: RouteParams) {
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
-    console.error(`❌ Stock API error for ${params.symbol}:`, error);
+    console.error(`❌ Stock API error for ${symbol}:`, error);
 
     return NextResponse.json(
       {
